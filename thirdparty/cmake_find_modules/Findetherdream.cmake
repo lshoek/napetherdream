@@ -7,15 +7,6 @@ if(WIN32)
     set(ETHERDREAM_LIBS_DIR ${ETHERDREAM_DIR}/msvc/x86_64/Release)
     set(ETHERDREAM_LIBS ${ETHERDREAM_LIBS_DIR}/EtherDream.lib)
     set(ETHERDREAM_LIBS_RELEASE_DLL ${ETHERDREAM_LIBS_DIR}/EtherDream.dll)
-elseif(APPLE)
-    find_path(ETHERDREAM_DIR
-              NAMES macos/source/include/etherdream.h
-              HINTS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/etherdream
-              )
-    set(ETHERDREAM_INCLUDE_DIR ${ETHERDREAM_DIR}/macos/source/include)
-    set(ETHERDREAM_LIBS_DIR ${ETHERDREAM_DIR}/macos/x86_64/Release)
-    set(ETHERDREAM_LIBS ${ETHERDREAM_LIBS_DIR}/libEtherDream.dylib)
-    set(ETHERDREAM_LIBS_RELEASE_DLL ${ETHERDREAM_LIBS})
 else()
     find_path(ETHERDREAM_DIR
               NAMES linux/source/include/etherdream.h

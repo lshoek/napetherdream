@@ -5,7 +5,6 @@
 #pragma once
 
 #include <utility/dllexport.h>
-#include <stdint.h>
 #include <string>
 #include <nap/numeric.h>
 #include <mutex>

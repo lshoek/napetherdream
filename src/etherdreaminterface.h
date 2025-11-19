@@ -16,14 +16,14 @@ namespace nap
 	 */
 	struct NAPAPI EtherDreamPoint
 	{
-		int16_t X	= 0;			///< Horizontal Position, extreme left = -32768; extreme right = +32767
-		int16_t Y	= 0;			///< Vertical Position, extreme bottom = -32768; extreme top = +32767
-		int16_t R	= 0;			///< Red Value, 0 = off, +32767 = red
-		int16_t G	= 0;			///< Green Value, 0 = off, +32767 = green
-		int16_t B	= 0;			///< Blue Value, 0 = off, +32767 = blue
-		int16_t I	= 0;			///< Point color number. This value is used as an index into the color palette. It isn't required to set this value
-		int16_t AL  = 0;			///< 1 = don't draw, 0 = draw. It isn't required to set this value 
-		int16_t AR  = 0;			///< Should be 1 for the last point. It is not required to set this value
+		int16 X	= 0;			///< Horizontal Position, extreme left = -32768; extreme right = +32767
+		int16 Y	= 0;			///< Vertical Position, extreme bottom = -32768; extreme top = +32767
+		uint16 R	= 0;		///< Red Value, 0 = off, +32767 = red
+		uint16 G	= 0;		///< Green Value, 0 = off, +32767 = green
+		uint16 B	= 0;		///< Blue Value, 0 = off, +32767 = blue
+		uint16 I	= 0;		///< Point color number. This value is used as an index into the color palette. It isn't required to set this value
+		uint16 AL   = 0;		///< 1 = don't draw, 0 = draw. It isn't required to set this value
+		uint16 AR   = 0;		///< Should be 1 for the last point. It is not required to set this value
 	};
 
 	/**
@@ -117,12 +117,22 @@ namespace nap
 		/**
 		 *	@return etherdream DAC min value
 		 */
-		static constexpr int16_t etherMin()		{ return  std::numeric_limits<int16_t>::min(); }
+		static constexpr int16 etherMinPosition()	{ return  std::numeric_limits<int16>::min(); }
 
 		/**
 		 *	@return etherdream DAC max value
 		 */
-		static constexpr int16_t etherMax()		{ return std::numeric_limits<int16_t>::max(); }
+		static constexpr int16 etherMaxPosition()	{ return std::numeric_limits<int16>::max(); }
+
+		/**
+		 *	@return etherdream DAC min value
+		 */
+		static constexpr uint16 etherMinColor()		{ return 0; }
+
+		/**
+		 *	@return etherdream DAC max value
+		 */
+		static constexpr uint16 etherMaxColor()		{ return std::numeric_limits<uint16>::max(); }
 
 	private:
 		// Number of available dacs found after initialization
